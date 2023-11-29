@@ -54,7 +54,9 @@ for(let i = 0; i  < arrayDeTeclas.length ; i++){
        
     }
 
-       
+       tecla.onkeydown = function(){
+        tecla.classList.add('ativa');
+       }
 
        
     

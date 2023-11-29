@@ -45,7 +45,7 @@ h1 {
   text-align: center;
   width: 120px;
 }
-
+/*:active faz com que o o button fique vermelho ao clique do mouse*/
 .tecla.ativa,
 .tecla:active {
   background-color: var(--vermelha);
