@@ -54,8 +54,16 @@ for(let i = 0; i  < arrayDeTeclas.length ; i++){
        
     }
 
-       tecla.onkeydown = function(){
-        tecla.classList.add('ativa');
+       tecla.onkeydown = function(evento){
+        console.log(evento.code =='Space' || 'Enter');
+
+        if(evento.code ==='Space' || 'Enter'){
+            tecla.classList.add('ativa');
+        }
+       }
+       
+       tecla.onkeyup = function(){
+        tecla.classList.remove('ativa');
        }
 
        
