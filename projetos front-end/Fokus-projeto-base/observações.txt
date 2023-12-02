@@ -1,0 +1,38 @@
+//document --> html
+// query --> consulta
+//selector --> seletor 
+
+/*Obs o Selector pode selecionar tanto tags
+html como <a> , <button>, <h1> como clases ou Id
+mas lembrando que o JavaScript
+ve como string então ficaria assim
+document.querySelector('button') ou 
+document.querySelector('.link-colorido') */
+
+//All --> tudo ou todos
+
+/*Alem do document.querySelector existe tambem o getElementsByClassName('Classe-01') que no caso não é necessario colocar ('.Classe-01') pois como o proprio comando diz:Traduzindo no Google tradutor --> 
+obter elementos por nome de classe, e tambem existe outro metodo getElementsById('id-01')*/
+
+/*como isso podemos prosseguir já que sabemos como pegar elementos no DOM*/
+
+/*Mas o que é o DOM?
+O DOM é uma Sigla para Document Object Model, que em português significa Modelo de Documento por Objetos.Que Basicamente é uma interface de programação que os navegadores utilizam para representar páginas na web.
+
+Saiba Mais em : https://www.hostinger.com.br/tutoriais/dom-o-que-e
+
+
+o JavaScript pode ser colocado na 
+tag head ou no fim da tag body antes do 
+fechamento como é o mais comum porem para colocar na tag head
+para a aplicação web não ter atraso ou 
+erros por carregar primeiro o JavaScript
+deve se colocar dentro da tag 
+<script src="" defer></script> o 'defer' 
+vai gerar um atraso no arquivo html fazendo 
+com que seja carregado o html e css 
+e depois o JavaScript.
+
+
+*/
+
