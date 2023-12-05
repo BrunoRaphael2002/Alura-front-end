@@ -49,7 +49,9 @@ while(i < arrayDeTeclas){
 
 
 //para
-for(let i = 0; i  < arrayDeTeclas.length ; i++){
+for(let i = 0; i < arrayDeTeclas.length ; i++){
+
+
 
     const tecla = arrayDeTeclas[i];
 
