@@ -17,6 +17,8 @@ const botaoStartpause = document.querySelector('#start-pause');
 
 const iniciarOuPausarBotao = document.querySelector(' #start-pause span');
 
+const iconePlayPause = document.querySelector('#start-pause img');
+
 const titulo = document.querySelector('.app__title');
 
 const listaDeBotoes = document.querySelectorAll('.app__card-button');
@@ -59,7 +61,9 @@ inputChangeMusic.addEventListener('change', () =>{
 
 
 
-
+iconePlayPause.addEventListener('click', ()=>{
+    alterarContexto('imagens/pause.png');
+})
 
 
 
@@ -167,16 +171,18 @@ function iniciarOuPausar(){
     }
     playSound.play();
     intervaloId = setInterval(contagemRegressiva, 1000) 
-    iniciarOuPausarBotao.textContent = 'Pausar'
-    alterarContexto('pause.png');
+    iniciarOuPausarBotao.textContent = 'Pausar';
+    iconePlayPause.setAttribute('src','imagens/pause.png')
+    
         
    
 }
 
 function zerar (){
     clearInterval(intervaloId);
-    iniciarOuPausarBotao.textContent = 'Começar'
-    alterarContexto('play_arrow.png');
+    iniciarOuPausarBotao.textContent = 'Começar';
+    iconePlayPause.setAttribute('src','imagens/play_arrow.png')
+    pauseSound.play()
     intervaloId =null;
 }
 
