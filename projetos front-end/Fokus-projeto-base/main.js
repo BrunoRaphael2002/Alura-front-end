@@ -17,8 +17,20 @@ const titulo = document.querySelector('.app__title');
 
 const listaDeBotoes = document.querySelectorAll('.app__card-button');
 
+const inputChangeMusic = document.querySelector('#alternar-musica');
+
+// Nessa parte vai ser criado uma constante que é um Array de audios
+
+const musica = new Audio('/sons/luna-rise-part-one.mp3');
 
 
+inputChangeMusic.addEventListener('change', () =>{
+    if(musica.paused){
+        musica.play()
+    }else{
+        musica.pause()
+    }
+})
 
 botaoFoco.addEventListener('click', () =>{
   // tagHtml.setAttribute('data-contexto', 'foco')
@@ -91,6 +103,8 @@ function alterarContexto(contexto){
             break;
 
     }
+
+    
 
 }
 
