@@ -16,6 +16,9 @@ const botaoLongo = document.querySelector('.app__card-button--longo');
 const botaoStartpause = document.querySelector('#start-pause');
 
 const iniciarOuPausarBotao = document.querySelector(' #start-pause span');
+//botões
+
+const tempoNaTela = document.querySelector('#timer')
 
 const iconePlayPause = document.querySelector('#start-pause img');
 
@@ -33,7 +36,7 @@ const musica = new Audio('/sons/luna-rise-part-one.mp3');
 
 
 
-let tempoDecorridoEmSegundos = 5;
+let tempoDecorridoEmSegundos = 1500;
 let intervaloId = null;
 
 const playSound = new Audio('sons/play.wav');
@@ -61,16 +64,14 @@ inputChangeMusic.addEventListener('change', () =>{
 
 
 
-iconePlayPause.addEventListener('click', ()=>{
-    alterarContexto('imagens/pause.png');
-})
+
 
 
 
 botaoFoco.addEventListener('click', () =>{
   // tagHtml.setAttribute('data-contexto', 'foco')
   // manipulaImagem.setAttribute('src', '/imagens/foco.png')
-
+    tempoDecorridoEmSegundos =1500;
   alterarContexto('foco');
   botaoFoco.classList.add('active');
 
@@ -88,8 +89,9 @@ que é um pouco mais longa.
 botaoCurto.addEventListener('click', function(){
    //tagHtml.setAttribute('data-contexto', 'descanso-curto')
    //manipulaImagem.setAttribute('src', '/imagens/descanso-curto.png')
-   alterarContexto('descanso-curto')
-   botaoCurto.classList.add('active')
+   tempoDecorridoEmSegundos = 300;
+   alterarContexto('descanso-curto');
+   botaoCurto.classList.add('active');
 }
     
 );
@@ -97,8 +99,9 @@ botaoCurto.addEventListener('click', function(){
 botaoLongo.addEventListener('click', ()=>{
   // tagHtml.setAttribute('data-contexto', 'descanso-longo')
    //manipulaImagem.setAttribute('src', '/imagens/descanso-longo.png')
-   alterarContexto('descanso-longo')
-   botaoLongo.classList.add('active')
+   tempoDecorridoEmSegundos = 900;
+   alterarContexto('descanso-longo');
+   botaoLongo.classList.add('active');
 })
 
 //refatorando
@@ -106,6 +109,7 @@ botaoLongo.addEventListener('click', ()=>{
 
 //funcao: refatorando e simplificando o codigo
 function alterarContexto(contexto){
+    mostrarTempo()
     listaDeBotoes.forEach(function (contexto){
         contexto.classList.remove('active')
         //pesquiser sobres o metodos do classlist
@@ -186,7 +190,14 @@ function zerar (){
     intervaloId =null;
 }
 
+function mostrarTempo(){
+   const tempo = new Date(tempoDecorridoEmSegundos * 1000)
+    const tempoFormatado = tempo.toLocaleString('pt-br', {minute: '2-digit', second:'2-digit'})
+   
+    tempoNaTela.innerHTML = `${tempoFormatado}`;
+}
 
+mostrarTempo();
 
 
 
