@@ -13,6 +13,8 @@ const botaoCurto = document.querySelector('.app__card-button--curto');
 
 const botaoLongo = document.querySelector('.app__card-button--longo');
 
+const botaoStartpause = document.querySelector('#start-pause');
+
 const titulo = document.querySelector('.app__title');
 
 const listaDeBotoes = document.querySelectorAll('.app__card-button');
@@ -21,8 +23,19 @@ const inputChangeMusic = document.querySelector('#alternar-musica');
 
 // Nessa parte vai ser criado uma constante que é um Array de audios
 
-const musica = new Audio('/sons/luna-rise-part-one.mp3');
+const musica = new Audio('/sons/luna-rise-part-one.mp3', 'sons/pause.mp3' , 'sons/play.wav' , 'sons/beep.mp3');
 
+let tempoDecorridoEmSegundos = 5;
+let intervaloId = null;
+
+musica.loop = true;
+
+
+
+
+//variaveis fim
+
+//interatividade dos botoes
 
 inputChangeMusic.addEventListener('change', () =>{
     if(musica.paused){
@@ -32,12 +45,22 @@ inputChangeMusic.addEventListener('change', () =>{
     }
 })
 
+botaoStartpause.addEventListener('click', ()=>{
+    if(musica.paused){
+        musica.play()
+    }else{
+        musica.pause()
+    }
+})
+
+
+
 botaoFoco.addEventListener('click', () =>{
   // tagHtml.setAttribute('data-contexto', 'foco')
   // manipulaImagem.setAttribute('src', '/imagens/foco.png')
 
-  alterarContexto('foco')
-  botaoFoco.classList.add('active')
+  alterarContexto('foco');
+  botaoFoco.classList.add('active');
 
 
 
@@ -68,6 +91,8 @@ botaoLongo.addEventListener('click', ()=>{
 
 //refatorando
 
+
+//funcao: refatorando e simplificando o codigo
 function alterarContexto(contexto){
     listaDeBotoes.forEach(function (contexto){
         contexto.classList.remove('active')
@@ -106,6 +131,34 @@ function alterarContexto(contexto){
 
     
 
+}
+
+const contagemRegressiva = () =>{
+    if(tempoDecorridoEmSegundos <= 0){
+        zerar()
+        alert('Tempo finalizado')
+        return
+    }
+    tempoDecorridoEmSegundos--;
+   console.log('contagem regressiva' + tempoDecorridoEmSegundos);
+}
+
+botaoStartpause.addEventListener('click', iniciarOuPausar);
+
+function iniciarOuPausar(){
+    if(intervaloId/*se intervaloId tiver algum resultado execute essa função*/){
+        zerar()
+        return
+    }
+    intervaloId = setInterval(contagemRegressiva, 1000) 
+    
+        
+   
+}
+
+function zerar (){
+    clearInterval(intervaloId);
+    intervaloId =null;
 }
 
 
