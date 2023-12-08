@@ -6,19 +6,26 @@ const formularioAddTask = document.querySelector('.app__form-add-task ');
 
 const textArea = document.querySelector('.app__form-textarea ');
 
-const listaDeTarefas = [
+
+const ulTarefas = document.querySelector('.app__section-task-list ');
+
+
+const listaDeTarefas = JSON.parse(localStorage.getItem('tarefas')) || [
     //lista de tarefas vai ser um Array vazio que recebe as tarefas
 ]
 
-function criarElementosDaTarefa(){
+function criarElementosDaTarefa(tarefa){ //depois de 15min caçando encontrei o erro
+    //faltou colocar (tarefa) na função e a função  criarElementosDaTarefa estava escrito criarElementosDaTarefat por isso não mostrava na tela
+
+
     //é um meio de criar um trecho de codigo html usando classes
      //Id's e tags html muito similar ao React porém no React 
      //é muito mais simplificado (Menos codigo)
 
-     const li = document.createElement('li');
-     li.classList.add('app__section-task-list-item');
+     const li = document.createElement('li')
+     li.classList.add('app__section-task-list-item')
 
-     const svg = document.createElement('svg');
+     const svg = document.createElement('svg')
      svg.innerHTML = ` <svg>
      <svg class="app__section-task-icon-status" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
          <circle cx="12" cy="12" r="12" fill="#FFF"></circle>
@@ -26,20 +33,20 @@ function criarElementosDaTarefa(){
      </svg>
  </svg>`
 
-     const paragrafo = document.createElement('p');
+     const paragrafo = document.createElement('p')
      paragrafo.textContent = tarefa.descricao
 
-     const botao = document.createElement('button');
+     const botao = document.createElement('button')
 
-     const imagemBotao = document.createElement('img');
-     imagemBotao.setAttribute('src', './imagens/edit.png');
-     botao.append(imagemBotao)//É como criar um container o .append coloca o  botao: <button>  <img> </button>
-     li.append(svg);
-     li.append(paragrafo);
-     li.append(botao);
+     const imagemBotao = document.createElement('img')
+     imagemBotao.setAttribute('src', './imagens/edit.png')
+     botao.append(imagemBotao) //É como criar um container o .append coloca o  botao: <button>  <img> </button>
+     li.append(svg)
+     li.append(paragrafo)
+     li.append(botao)
 
 
-     
+     return li
 
 
 }
@@ -84,3 +91,10 @@ formularioAddTask.addEventListener('submit', (evento)=>{
     JSON.stringify(listaDeTarefas) esse trecho do codigo vai transformar os itens do array em String
      */
 })
+
+listaDeTarefas.forEach(tarefa => {
+   const elementoTarefa = criarElementosDaTarefa(tarefa)
+    ulTarefas.append(elementoTarefa)
+});
+
+//for each para cada item da lista de tarefas
