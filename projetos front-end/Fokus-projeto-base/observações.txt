@@ -34,5 +34,7 @@ com que seja carregado o html e css
 e depois o JavaScript.
 
 
+OBS : sempre que for utilizar um caminho de um arquivo lembrar de utilizar o ./ por exemplo ./imagens/img02.png ou ./audios/musica.mp3 por que se não utilizar da erro no GitHub pages e pode ser que o mesmo problema em outros sites de hospedagem
+ 
 */
 
