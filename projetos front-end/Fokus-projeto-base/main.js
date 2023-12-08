@@ -32,7 +32,7 @@ const inputChangeMusic = document.querySelector('#alternar-musica');
 
 // Nessa parte vai ser criado uma constante que é um Array de audios
 
-const musica = new Audio('/sons/luna-rise-part-one.mp3');
+const musica = new Audio('./sons/luna-rise-part-one.mp3');
 
 
 
