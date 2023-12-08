@@ -71,7 +71,7 @@ inputChangeMusic.addEventListener('change', () =>{
 botaoFoco.addEventListener('click', () =>{
   // tagHtml.setAttribute('data-contexto', 'foco')
   // manipulaImagem.setAttribute('src', '/imagens/foco.png')
-    tempoDecorridoEmSegundos =1500;
+    tempoDecorridoEmSegundos = 1500;
   alterarContexto('foco');
   botaoFoco.classList.add('active');
 
@@ -155,13 +155,13 @@ function alterarContexto(contexto){
 
 const contagemRegressiva = () =>{
     if(tempoDecorridoEmSegundos <= 0 ){
-        //beepSound.play()
+        beepSound.play()
         alert('Tempo finalizado')
         zerar()
         return
     }
     tempoDecorridoEmSegundos--;
-   console.log('contagem regressiva' + tempoDecorridoEmSegundos);
+    mostrarTempo();
 }
 
 botaoStartpause.addEventListener('click', iniciarOuPausar);
@@ -192,7 +192,7 @@ function zerar (){
 
 function mostrarTempo(){
    const tempo = new Date(tempoDecorridoEmSegundos * 1000)
-    const tempoFormatado = tempo.toLocaleString('pt-br', {minute: '2-digit', second:'2-digit'})
+    const tempoFormatado = tempo.toLocaleTimeString('pt-br', {minute: '2-digit', second:'2-digit'})
    
     tempoNaTela.innerHTML = `${tempoFormatado}`;
 }
