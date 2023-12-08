@@ -32,16 +32,16 @@ const inputChangeMusic = document.querySelector('#alternar-musica');
 
 // Nessa parte vai ser criado uma constante que é um Array de audios
 
-const musica = new Audio('/sons/luna-rise-part-one.mp3');
+const musica = new Audio('./sons/luna-rise-part-one.mp3');
 
 
 
 let tempoDecorridoEmSegundos = 1500;
 let intervaloId = null;
 
-const playSound = new Audio('sons/play.wav');
-const pauseSound = new Audio('sons/pause.mp3');
-const beepSound = new Audio('sons/beep.mp3');
+const playSound = new Audio('./sons/play.wav');
+const pauseSound = new Audio('./sons/pause.mp3');
+const beepSound = new Audio('./sons/beep.mp3');
 
 let isPlaying = false;
 
