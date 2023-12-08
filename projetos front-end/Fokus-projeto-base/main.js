@@ -54,7 +54,7 @@ musica.loop = true;
 
 //interatividade dos botoes
 
-inputChangeMusic.addEventListener('click', () =>{
+inputChangeMusic.addEventListener('change', () =>{
     if(musica.paused){
         musica.play()
     }else{
