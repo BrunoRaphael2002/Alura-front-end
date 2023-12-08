@@ -6,7 +6,7 @@ const formularioAddTask = document.querySelector('.app__form-add-task ');
 
 const textArea = document.querySelector('.app__form-textarea ');
 
-const ListaDeTarefas = [
+const listaDeTarefas = [
     //lista de tarefas vai ser um Array vazio
 ]
 
@@ -26,7 +26,24 @@ formularioAddTask.addEventListener('submit', (evento)=>{
    // const descricaoDaTarefa = textArea.value /*o .value pega o valor digitado pelo usuario . A constante  descricaoDaTarefa não será mais necessaria pois o objeto tarefa já vai coletar o valor digitado */
 
     const tarefa = {//criação de um objeto JavaScript]
-        descricao:
+        descricao: textArea.value
 
     }
+
+    listaDeTarefas.push(tarefa) //push é um metodo nativo do array
+    localStorage.setItem('Tarefas', JSON.stringify(listaDeTarefas))
+
+    /* Acrescenta novos elementos ao final de uma matriz e retorna o novo comprimento da matriz. basicamente ele acrensenta um item novo a lista então assim serião criados varias descrições de cada item da lista do formulario:
+
+    0-estudar JavaScript
+    1-estudar Matematica
+    2-fazer o almoço 
+    3-passar pano na Casa
+    4-cuidar do bebê
+    etc..
+
+    e todos esses itens que o usuario adicionar vão ficar salvos em seu aparelho de modo local
+
+    JSON.stringify(listaDeTarefas) esse trecho do codigo vai transformar os itens do array em String
+     */
 })
