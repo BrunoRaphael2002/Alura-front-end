@@ -39,9 +39,9 @@ const musica = new Audio('/sons/luna-rise-part-one.mp3');
 let tempoDecorridoEmSegundos = 1500;
 let intervaloId = null;
 
-const playSound = new Audio('/sons/play.wav');
-const pauseSound = new Audio('/sons/pause.mp3');
-const beepSound = new Audio('/sons/beep.mp3');
+const playSound = new Audio('./sons/play.wav');
+const pauseSound = new Audio('./sons/pause.mp3');
+const beepSound = new Audio('./sons/beep.mp3');
 
 let isPlaying = false;
 
@@ -115,7 +115,7 @@ function alterarContexto(contexto){
         //pesquiser sobres o metodos do classlist
     })
     tagHtml.setAttribute('data-contexto', contexto)
-    manipulaImagem.setAttribute('src', `/imagens/${contexto}.png`)
+    manipulaImagem.setAttribute('src', `./imagens/${contexto}.png`)
 
     switch(contexto){
         case "foco":
@@ -176,7 +176,7 @@ function iniciarOuPausar(){
     playSound.play();
     intervaloId = setInterval(contagemRegressiva, 1000) 
     iniciarOuPausarBotao.textContent = 'Pausar';
-    iconePlayPause.setAttribute('src','imagens/pause.png')
+    iconePlayPause.setAttribute('src','./imagens/pause.png')
     
         
    
@@ -185,7 +185,7 @@ function iniciarOuPausar(){
 function zerar (){
     clearInterval(intervaloId);
     iniciarOuPausarBotao.textContent = 'Começar';
-    iconePlayPause.setAttribute('src','imagens/play_arrow.png')
+    iconePlayPause.setAttribute('src','./imagens/play_arrow.png')
     pauseSound.play()
     intervaloId =null;
 }
