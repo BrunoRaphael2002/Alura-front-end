@@ -76,10 +76,15 @@ formularioAddTask.addEventListener('submit', (evento)=>{
 
     }
 
-    listaDeTarefas.push(tarefa) //push é um metodo nativo do array
+    listaDeTarefas.push(tarefa)//push é um metodo nativo do array
+    const elementoDaTarefa = criarElementosDaTarefa(tarefa)
+    ulTarefas.append(elementoDaTarefa) 
     localStorage.setItem('Tarefas', JSON.stringify(listaDeTarefas))
+    textArea.value = ''
+    formularioAddTask.classList.add('hidden');
 
-    /* Acrescenta novos elementos ao final de uma matriz e retorna o novo comprimento da matriz. basicamente ele acrensenta um item novo a lista então assim serião criados varias descrições de cada item da lista do formulario:
+
+    /* PUSH: Acrescenta novos elementos ao final de uma matriz e retorna o novo comprimento da matriz. basicamente ele acrensenta um item novo a lista então assim serião criados varias descrições de cada item da lista do formulario:
 
     0-estudar JavaScript
     1-estudar Matematica
