@@ -20,7 +20,8 @@ let tarefaSelecionada = null;
 
 function atualizarTarefas (){
    
-    localStorage.setItem('tarefas', JSON.stringify(listaDeTarefas))
+    localStorage.setItem('tarefas', JSON.stringify(listaDeTarefas))/*
+    Na função atualizarTarefas, você está usando localStorage.setItem('Tarefas', JSON.stringify(listaDeTarefas)). Note que você está usando 'Tarefas' como a chave, mas ao recuperar o valor, você está usando 'tarefas' (minúsculo). Isso pode causar problemas. Certifique-se de usar a mesma chave ao definir e obter do Local Storage.*/
 }
 
 
