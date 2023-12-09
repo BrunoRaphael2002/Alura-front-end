@@ -29,6 +29,15 @@ const listaDeBotoes = document.querySelectorAll('.app__card-button');
 const inputChangeMusic = document.querySelector('#alternar-musica');
 
 
+const modal =  document.querySelector('#modal');
+const buttonClose =  document.querySelector('#modal button');
+
+buttonClose.addEventListener('click', ()=>{
+    modal.close()
+   
+})
+
+
 
 // Nessa parte vai ser criado uma constante que é um Array de audios
 
@@ -89,7 +98,7 @@ que é um pouco mais longa.
 botaoCurto.addEventListener('click', function(){
    //tagHtml.setAttribute('data-contexto', 'descanso-curto')
    //manipulaImagem.setAttribute('src', '/imagens/descanso-curto.png')
-   tempoDecorridoEmSegundos = 300;
+   tempoDecorridoEmSegundos = 10;
    alterarContexto('descanso-curto');
    botaoCurto.classList.add('active');
 }
@@ -155,8 +164,8 @@ function alterarContexto(contexto){
 
 const contagemRegressiva = () =>{
     if(tempoDecorridoEmSegundos <= 0 ){
+        modal.showModal()
         beepSound.play()
-        alert('Tempo finalizado')
         zerar()
         return
     }
