@@ -98,7 +98,7 @@ que é um pouco mais longa.
 botaoCurto.addEventListener('click', function(){
    //tagHtml.setAttribute('data-contexto', 'descanso-curto')
    //manipulaImagem.setAttribute('src', '/imagens/descanso-curto.png')
-   tempoDecorridoEmSegundos = 0;
+   tempoDecorridoEmSegundos = 300;
    alterarContexto('descanso-curto');
    botaoCurto.classList.add('active');
 }
