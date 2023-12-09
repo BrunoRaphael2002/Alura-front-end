@@ -208,6 +208,18 @@ function mostrarTempo(){
 
 mostrarTempo();
 
+// testando funcionalidade 
+
+// se o botão ok for clicado então o som deve parar
+
+buttonClose.addEventListener('click', () =>{
+ 
+    beepSound.pause()
+    
+})
+
+//funcionalidade aprovada
+
 
 
 
