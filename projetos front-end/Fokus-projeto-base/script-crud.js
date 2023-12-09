@@ -20,7 +20,7 @@ let tarefaSelecionada = null;
 
 function atualizarTarefas (){
    
-    localStorage.setItem('Tarefas', JSON.stringify(listaDeTarefas))
+    localStorage.setItem('tarefas', JSON.stringify(listaDeTarefas))
 }
 
 
