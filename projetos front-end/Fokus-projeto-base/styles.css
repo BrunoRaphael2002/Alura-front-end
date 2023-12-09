@@ -510,3 +510,43 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 0.8;
     cursor: not-allowed;
 }
+
+/*meu codigo*/
+
+
+dialog{
+    border: none;
+    border-radius: 2rem;
+    box-shadow: 0 0 .1em rgb(0 0 0 / .3);
+    text-align: center;
+    width: 25%;
+    background-color: #00F4BF;
+    font-family: Montserrat;
+  
+    
+}
+dialog h1{
+    margin: 5px;
+    padding: 20px;
+    font-size: 2.8rem;
+    font-weight: 600;
+}
+
+dialog h2 {
+    margin:  5px;
+    padding: 5px;
+    font-weight: 400;
+    font-size: 1.8rem;
+    
+    
+}
+
+dialog button{
+    margin: 10px;
+    padding: 10px 40px;
+   cursor: pointer;
+    color: white;
+    font-size: 1.4rem;
+    background-color: #B872FF;
+    border-radius:25px ;
+}
