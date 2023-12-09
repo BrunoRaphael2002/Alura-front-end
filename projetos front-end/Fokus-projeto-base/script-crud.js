@@ -8,22 +8,29 @@ const textArea = document.querySelector('.app__form-textarea ');
 
 const ulTarefas = document.querySelector('.app__section-task-list ');
 
-debugger
+const paragrafoDescricaoDaTarefa = document.querySelector('.app__section-active-task-description')
+
+const listaDeTarefas = JSON.parse(localStorage.getItem('tarefas')) || [
+    //lista de tarefas vai ser um Array vazio que recebe as tarefas
+]
+
+let tarefaSelecionada = null;
+
+
 
 function atualizarTarefas (){
+   
     localStorage.setItem('Tarefas', JSON.stringify(listaDeTarefas))
 }
 
 
 
 
-const listaDeTarefas = JSON.parse(localStorage.getItem('tarefas')) || [
-    //lista de tarefas vai ser um Array vazio que recebe as tarefas
-]
+
 
 function criarElementosDaTarefa(tarefa){ //depois de 15min caçando encontrei o erro
     //faltou colocar (tarefa) na função e a função  criarElementosDaTarefa estava escrito criarElementosDaTarefat por isso não mostrava na tela
-
+    
 
     //é um meio de criar um trecho de codigo html usando classes
      //Id's e tags html muito similar ao React porém no React 
@@ -46,7 +53,7 @@ function criarElementosDaTarefa(tarefa){ //depois de 15min caçando encontrei o 
 
      const botao = document.createElement('button')
      botao.classList.add('app_button-edit')
-
+    //debugger
      botao.onclick =() =>{
         const edicaoDaTarefa = prompt('adicone uma nova tarefa')
         
@@ -66,6 +73,27 @@ function criarElementosDaTarefa(tarefa){ //depois de 15min caçando encontrei o 
      li.append(paragrafo)
      li.append(botao)
 
+
+     li.onclick = () =>{
+           //Esse trecho de codigo  é util em navBar
+    
+        document.querySelectorAll('.app__section-task-list-item-active')
+        .forEach(elemento => {
+            elemento.classList.remove('app__section-task-list-item-active')
+        })
+
+      
+     
+        if (tarefaSelecionada == tarefa) {
+            paragrafoDescricaoDaTarefa.textContent = ''
+            tarefaSelecionada = null
+            return
+        }
+        tarefaSelecionada = tarefa
+        paragrafoDescricaoDaTarefa.textContent = tarefa.descricao
+        li.classList.add('app__section-task-list-item-active')
+       
+     }
 
      return li
 
