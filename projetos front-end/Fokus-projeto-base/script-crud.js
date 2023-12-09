@@ -6,8 +6,15 @@ const formularioAddTask = document.querySelector('.app__form-add-task ');
 
 const textArea = document.querySelector('.app__form-textarea ');
 
-
 const ulTarefas = document.querySelector('.app__section-task-list ');
+
+debugger
+
+function atualizarTarefas (){
+    localStorage.setItem('Tarefas', JSON.stringify(listaDeTarefas))
+}
+
+
 
 
 const listaDeTarefas = JSON.parse(localStorage.getItem('tarefas')) || [
@@ -39,6 +46,18 @@ function criarElementosDaTarefa(tarefa){ //depois de 15min caçando encontrei o 
 
      const botao = document.createElement('button')
      botao.classList.add('app_button-edit')
+
+     botao.onclick =() =>{
+        const edicaoDaTarefa = prompt('adicone uma nova tarefa')
+        
+
+        if(edicaoDaTarefa != '' && edicaoDaTarefa != null){
+            paragrafo.textContent = edicaoDaTarefa
+            tarefa.descricao = edicaoDaTarefa
+            atualizarTarefas()
+        }
+        
+     }
 
      const imagemBotao = document.createElement('img')
      imagemBotao.setAttribute('src', './imagens/edit.png')
@@ -79,7 +98,7 @@ formularioAddTask.addEventListener('submit', (evento)=>{
     listaDeTarefas.push(tarefa)//push é um metodo nativo do array
     const elementoDaTarefa = criarElementosDaTarefa(tarefa)
     ulTarefas.append(elementoDaTarefa) 
-    localStorage.setItem('Tarefas', JSON.stringify(listaDeTarefas))
+    atualizarTarefas()
     textArea.value = ''
     formularioAddTask.classList.add('hidden');
 
