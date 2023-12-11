@@ -77,6 +77,11 @@ function criarElementosDaTarefa(tarefa){ //depois de 15min caçando encontrei o 
      li.append(botao)
 
 
+     if (tarefa.completa) {
+        li.classList.add('app__section-task-list-item-complete')
+       botao.setAttribute('disabled' , 'disabled')
+        
+     }else{
      li.onclick = () =>{
            //Esse trecho de codigo  é util em navBar
     
@@ -99,8 +104,10 @@ function criarElementosDaTarefa(tarefa){ //depois de 15min caçando encontrei o 
         li.classList.add('app__section-task-list-item-active')
        
      }
+     }
 
      return li
+    
 
 
 }
@@ -163,9 +170,16 @@ listaDeTarefas.forEach(tarefa => {
 
 document.addEventListener('FocoFinalizado' , () => {
     if (tarefaSelecionada && liDatarefaSelecionada){
+
         liDatarefaSelecionada.classList.remove('app__section-task-list-item-active')
+
         liDatarefaSelecionada.classList.add('app__section-task-list-item-complete')
+
         liDatarefaSelecionada.querySelector('button').setAttribute('disabled' , 'disabled')
+
+        tarefaSelecionada.completa = true
+        
+        atualizarTarefas()
        
     }
 })
