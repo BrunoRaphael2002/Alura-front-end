@@ -10,7 +10,9 @@ const ulTarefas = document.querySelector('.app__section-task-list ');
 
 const paragrafoDescricaoDaTarefa = document.querySelector('.app__section-active-task-description')
 
-const listaDeTarefas = JSON.parse(localStorage.getItem('tarefas')) || [
+const removerConcluidas = document.querySelector('#btn-remover-concluidas')
+
+let listaDeTarefas = JSON.parse(localStorage.getItem('tarefas')) || [
     //lista de tarefas vai ser um Array vazio que recebe as tarefas
 ]
 
@@ -183,6 +185,26 @@ document.addEventListener('FocoFinalizado' , () => {
        
     }
 })
+
+removerConcluidas.onclick = () =>{
+   
+       const seletor = '.app__section-task-list-item-complete'
+       document.querySelectorAll(seletor).forEach( elemento =>{
+            elemento.remove()
+       }) 
+
+       
+
+       listaDeTarefas = listaDeTarefas.filter(tarefa => !tarefa.completa )
+       atualizarTarefas()
+    
+}
+
+const removeTodasTarefas = document.querySelector('#btn-remover-todas')
+
+/*removeTodasTarefas.onclick = () =>{
+    const 
+}*/
      
         
     
