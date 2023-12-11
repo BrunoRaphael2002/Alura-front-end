@@ -15,6 +15,8 @@ const listaDeTarefas = JSON.parse(localStorage.getItem('tarefas')) || [
 ]
 
 let tarefaSelecionada = null;
+let liDatarefaSelecionada = null;
+
 
 
 
@@ -88,9 +90,11 @@ function criarElementosDaTarefa(tarefa){ //depois de 15min caçando encontrei o 
         if (tarefaSelecionada == tarefa) {
             paragrafoDescricaoDaTarefa.textContent = ''
             tarefaSelecionada = null
+            liDatarefaSelecionada = null
             return
         }
         tarefaSelecionada = tarefa
+        liDatarefaSelecionada = li
         paragrafoDescricaoDaTarefa.textContent = tarefa.descricao
         li.classList.add('app__section-task-list-item-active')
        
@@ -153,3 +157,16 @@ listaDeTarefas.forEach(tarefa => {
 });
 
 //for each para cada item da lista de tarefas
+
+
+//-------------------------------------------------------------
+
+document.addEventListener('FocoFinalizado' , () => {
+    if (tarefaSelecionada && liDatarefaSelecionada){
+        liDatarefaSelecionada.classList.remove('app__section-task-list-item-active')
+        liDatarefaSelecionada.classList.add('app__section-task-list-item-complete')
+    }
+})
+     
+        
+    

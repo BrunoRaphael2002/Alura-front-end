@@ -166,6 +166,11 @@ const contagemRegressiva = () =>{
     if(tempoDecorridoEmSegundos <= 0 ){
         modal.showModal()
         beepSound.play()
+        const focoAtivo = tagHtml.getAttribute('data-contexto') == 'foco'
+        if (focoAtivo) {
+            const event = new CustomEvent('FocoFinalizado')
+            document.dispatchEvent(event)
+        }
         zerar()
         return
     }
