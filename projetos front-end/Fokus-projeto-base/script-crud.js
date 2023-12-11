@@ -186,25 +186,25 @@ document.addEventListener('FocoFinalizado' , () => {
     }
 })
 
-removerConcluidas.onclick = () =>{
+const removerTarefas = (somenteTarefasCompletas) =>{
    
-       const seletor = '.app__section-task-list-item-complete'
+       const seletor = somenteTarefasCompletas ? '.app__section-task-list-item-complete' : '.app__section-task-list-item'
        document.querySelectorAll(seletor).forEach( elemento =>{
             elemento.remove()
        }) 
 
        
 
-       listaDeTarefas = listaDeTarefas.filter(tarefa => !tarefa.completa )
+       listaDeTarefas = somenteTarefasCompletas ? listaDeTarefas.filter(tarefa => !tarefa.completa  ) : []
        atualizarTarefas()
     
 }
 
-const removeTodasTarefas = document.querySelector('#btn-remover-todas')
+removerConcluidas.onclick = () => removerTarefas(true)
 
-/*removeTodasTarefas.onclick = () =>{
-    const 
-}*/
-     
+
+const removeTodasTarefas.onclick = () => removerTarefas(false) 
+
+ 
         
     
