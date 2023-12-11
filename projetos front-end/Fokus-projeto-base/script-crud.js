@@ -11,6 +11,8 @@ const ulTarefas = document.querySelector('.app__section-task-list ');
 const paragrafoDescricaoDaTarefa = document.querySelector('.app__section-active-task-description')
 
 const removerConcluidas = document.querySelector('#btn-remover-concluidas')
+const removeTodasTarefas = document.querySelector('#btn-remover-todas')
+
 
 let listaDeTarefas = JSON.parse(localStorage.getItem('tarefas')) || [
     //lista de tarefas vai ser um Array vazio que recebe as tarefas
@@ -202,8 +204,7 @@ const removerTarefas = (somenteTarefasCompletas) =>{
 
 removerConcluidas.onclick = () => removerTarefas(true)
 
-
-const removeTodasTarefas.onclick = () => removerTarefas(false) 
+ removeTodasTarefas.onclick = () => removerTarefas(false) 
 
  
         
