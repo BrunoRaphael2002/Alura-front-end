@@ -165,6 +165,8 @@ document.addEventListener('FocoFinalizado' , () => {
     if (tarefaSelecionada && liDatarefaSelecionada){
         liDatarefaSelecionada.classList.remove('app__section-task-list-item-active')
         liDatarefaSelecionada.classList.add('app__section-task-list-item-complete')
+        liDatarefaSelecionada.querySelector('button').setAttribute('disabled' , 'disabled')
+       
     }
 })
      

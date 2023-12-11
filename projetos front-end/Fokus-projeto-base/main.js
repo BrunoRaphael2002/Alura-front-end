@@ -80,7 +80,7 @@ inputChangeMusic.addEventListener('change', () =>{
 botaoFoco.addEventListener('click', () =>{
   // tagHtml.setAttribute('data-contexto', 'foco')
   // manipulaImagem.setAttribute('src', '/imagens/foco.png')
-    tempoDecorridoEmSegundos = 1500;
+    tempoDecorridoEmSegundos = 0;
   alterarContexto('foco');
   botaoFoco.classList.add('active');
 
