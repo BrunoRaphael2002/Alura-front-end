@@ -41,7 +41,7 @@ h3{
 .box{
     border: 2px solid var(--color-primary);
     display: inline-block;
-    font-size: 4em;
+    font-size: 2em;
     padding: 10px;
     margin: 20px;
 }
