@@ -24,5 +24,5 @@ function chuteForInvalido(numeroRecebidoAPI) {
 }
 
 function numeroForMaiorOuMenorQueOValorPermitido(numeroRecebidoAPI) {
-    return numeroRecebidoAPI > maiorValor || numeroRecebidoAPI < maiorValor
+    return numeroRecebidoAPI > maiorValor || numeroRecebidoAPI <  menorValor
 }
