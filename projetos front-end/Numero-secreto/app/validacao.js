@@ -10,8 +10,8 @@ function verificaSeOChutePossuiUmValorValido(chute) {
         console.log('valor Inválido');
     }
 
-    if(newFunction(numeroRecebidoAPI)){
-        console.log('valor Inválido');
+    if(numeroForMaiorOuMenorQueOValorPermitido(numeroRecebidoAPI)){
+        console.log(`Valor invalido o valor deve ser entre ${menorValor} e ${maiorValor}`);
 
     }
     
@@ -23,6 +23,6 @@ function chuteForInvalido(numeroRecebidoAPI) {
     return Number.isNaN(numeroRecebidoAPI)
 }
 
-function newFunction(numeroRecebidoAPI) {
+function numeroForMaiorOuMenorQueOValorPermitido(numeroRecebidoAPI) {
     return numeroRecebidoAPI > maiorValor || numeroRecebidoAPI < maiorValor
 }

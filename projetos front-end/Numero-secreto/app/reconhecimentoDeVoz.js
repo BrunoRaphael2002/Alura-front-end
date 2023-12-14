@@ -17,6 +17,7 @@ const SpeechRecognition =
   function onSpeak (event){
     let chute = event.results[0][0].transcript
     exibeChuteNaTela(chute)
+    verificaSeOChutePossuiUmValorValido(chute)
 
   }
 
