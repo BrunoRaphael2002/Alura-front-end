@@ -25,7 +25,9 @@ function verificaSeOChutePossuiUmValorValido(chute) {
 
     }else /* senao se  */ if(numeroRecebidoAPI >  numeroSecreto ){
         /* > maior que */ 
-        elementoChute.innerHTML += ` <div>O Numero Secreto é menor <i class="fa-solid fa-arrow-down"></i></div>`
+        elementoChute.innerHTML += ` <div>O Numero Secreto é menor <i class="fa-solid fa-arrow-down"></i></div>
+       
+        `
     }else{
         elementoChute.innerHTML += ` <div>O Numero Secreto é maior <i class="fa-solid fa-arrow-up"></i></div>`
     }
