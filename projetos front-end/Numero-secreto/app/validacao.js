@@ -7,12 +7,16 @@ function verificaSeOChutePossuiUmValorValido(chute) {
     //Validando Dados:
 
     if ( chuteForInvalido(numeroRecebidoAPI)){
-        console.log('valor Inválido');
+        elementoChute.innerHTML += `<div>valor Inválido</div>`;
     }
 
     if(numeroForMaiorOuMenorQueOValorPermitido(numeroRecebidoAPI)){
-        console.log(`Valor invalido o valor deve ser entre ${menorValor} e ${maiorValor}`);
+      elementoChute.innerHTML += `<div>Valor invalido o valor deve ser entre ${menorValor} e ${maiorValor} </div>`;
 
+    }
+
+    if (numeroRecebidoAPI === numeroSecreto ){
+        document.body.innerHTML = ` `
     }
     
 }
