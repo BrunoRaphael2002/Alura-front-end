@@ -16,7 +16,7 @@ function verificaSeOChutePossuiUmValorValido(chute) {
     }
 
     if (numeroRecebidoAPI === numeroSecreto ){
-        document.body.innerHTML = ` `
+        document.body.innerHTML = ` <h2></h2>`
     }
     
 }
