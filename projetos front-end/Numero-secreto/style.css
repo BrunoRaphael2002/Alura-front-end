@@ -50,3 +50,13 @@ h3{
     padding: 10px;
     margin: 20px;
 }
+
+
+.btn-jogar{
+    padding: 10px 20px;
+    box-shadow: 1px 1px  3px black;
+    margin: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    
+}
