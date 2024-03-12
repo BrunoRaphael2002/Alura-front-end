@@ -1,0 +1,91 @@
+-- SELECT: Recupera dados de uma ou mais tabelas com base em critérios específicos.
+SELECT coluna1, coluna2 FROM tabela WHERE condição;
+
+-- INSERT: Insere novos registros em uma tabela.
+INSERT INTO tabela (coluna1, coluna2) VALUES (valor1, valor2);
+
+-- UPDATE: Atualiza registros existentes em uma tabela.
+UPDATE tabela SET coluna1 = valor1 WHERE condição;
+
+-- DELETE: Remove registros de uma tabela com base em determinados critérios.
+DELETE FROM tabela WHERE condição;
+
+-- CREATE TABLE: Cria uma nova tabela no banco de dados.
+CREATE TABLE nome_tabela (
+    coluna1 tipo_dados,
+    coluna2 tipo_dados,
+    ...
+);
+
+-- ALTER TABLE: Modifica a estrutura de uma tabela existente.
+ALTER TABLE tabela ADD coluna tipo_dados;
+
+-- DROP TABLE: Exclui uma tabela existente do banco de dados.
+DROP TABLE nome_tabela;
+
+-- JOIN: Combina dados de duas ou mais tabelas com base em uma condição relacionada.
+SELECT * FROM tabela1 JOIN tabela2 ON tabela1.coluna = tabela2.coluna;
+
+-- GROUP BY: Agrupa registros com base em valores semelhantes em uma ou mais colunas.
+SELECT coluna1, COUNT(*) FROM tabela GROUP BY coluna1;
+
+-- ORDER BY: Classifica os resultados de uma consulta em ordem ascendente ou descendente.
+SELECT * FROM tabela ORDER BY coluna DESC;
+
+1. INTEGER: Armazena números inteiros. Pode ser especificado com várias larguras, como INT, TINYINT, SMALLINT, MEDIUMINT e BIGINT.
+
+2. FLOAT: Armazena números de ponto flutuante de precisão simples.
+
+3. DOUBLE: Armazena números de ponto flutuante de precisão dupla.
+
+4. DECIMAL: Armazena números decimais exatos. É útil quando a precisão é crítica, como em operações financeiras.
+
+5. CHAR: Armazena strings de comprimento fixo. O tamanho deve ser especificado.
+
+6. VARCHAR: Armazena strings de comprimento variável. O tamanho máximo deve ser especificado.
+
+7. TEXT: Armazena strings de texto de comprimento variável, útil para grandes volumes de texto.
+
+8. DATE: Armazena datas no formato 'YYYY-MM-DD'.
+
+9. TIME: Armazena tempo no formato 'HH:MM:SS'.
+
+10. DATETIME: Armazena datas e horas no formato 'YYYY-MM-DD HH:MM:SS'.
+
+11. BOOLEAN: Armazena valores booleanos, também pode ser representado como TINYINT(1).
+
+
+
+
+1. Maior que (>): Retorna verdadeiro se o valor da esquerda for maior que o valor da direita.
+   Exemplo:
+   SELECT * FROM tabela WHERE coluna1 > valor1;
+
+2. Menor que (<): Retorna verdadeiro se o valor da esquerda for menor que o valor da direita.
+   Exemplo:
+   SELECT * FROM tabela WHERE coluna1 < valor1;
+
+3. Maior ou igual (>=): Retorna verdadeiro se o valor da esquerda for maior ou igual ao valor da direita.
+   Exemplo:
+   SELECT * FROM tabela WHERE coluna1 >= valor1;
+
+4. Menor ou igual (<=): Retorna verdadeiro se o valor da esquerda for menor ou igual ao valor da direita.
+   Exemplo:
+   SELECT * FROM tabela WHERE coluna1 <= valor1;
+
+
+1. AND: Retorna verdadeiro se ambas as condições forem verdadeiras.
+   Exemplo:
+   SELECT * FROM tabela WHERE coluna1 > valor1 AND coluna2 < valor2;
+
+2. OR: Retorna verdadeiro se pelo menos uma das condições for verdadeira.
+   Exemplo:
+   SELECT * FROM tabela WHERE coluna1 > valor1 OR coluna2 < valor2;
+
+3. NOT: Inverte o valor de verdadeiro para falso e vice-versa.
+   Exemplo:
+   SELECT * FROM tabela WHERE NOT coluna1 = valor1;
+
+4. XOR: Retorna verdadeiro se uma, e somente uma, das condições for verdadeira.
+   Exemplo:
+   SELECT * FROM tabela WHERE coluna1 > valor1 XOR coluna2 < valor2;
