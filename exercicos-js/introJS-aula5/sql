@@ -73,6 +73,14 @@ SELECT * FROM tabela ORDER BY coluna DESC;
    Exemplo:
    SELECT * FROM tabela WHERE coluna1 <= valor1;
 
+5.Diferente :
+SELECT * FROM tabela
+WHERE coluna != 'valor_desejado';
+
+SELECT * FROM tabela
+WHERE coluna <> 'valor_desejado';
+
+
 
 1. AND: Retorna verdadeiro se ambas as condições forem verdadeiras.
    Exemplo:
