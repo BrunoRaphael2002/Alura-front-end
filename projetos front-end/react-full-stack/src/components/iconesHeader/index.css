@@ -1,0 +1,11 @@
+.icones{
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 40px;
+   
+}
+
+.icone_img{
+    width: 25px;
+}
