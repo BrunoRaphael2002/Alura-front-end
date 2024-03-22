@@ -1,6 +1,3 @@
-
-
-
 import Header from './components/header';
 import styled from "styled-components";
 
