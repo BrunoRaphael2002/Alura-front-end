@@ -1,7 +1,11 @@
 import React from 'react';
 import InputStyle from '../input';
 import styled from 'styled-components';
+//utilisando Estados React useState
+import { useState } from 'react';
+//inserindo dados 
 
+import { livros } from './dadosPesquisa';
 
 
 const PesquisaContainer = styled.section`
@@ -29,14 +33,32 @@ const Subtitulo = styled.h3`
 
 
 export default function Pesquisa() {
+        const [ livrosPesquisados, setLivrosPesquisados ] = useState([])
+
+    
+
   return (
     <PesquisaContainer>
     <Titulo>Já sabe por onde começar ?</Titulo>
     <Subtitulo>Encontre seu livro em nossa estante.</Subtitulo>
 
-    <InputStyle type="text"
-    placeholder='pesquisar...'
+    <InputStyle 
+    type="text"
+    placeholder='Escreva sua próxima leitura'
+    onBlur={evento => {
+        const textoDigitado = evento.target.value
+        const resultadoPesquisa = livros.filter( livro => livro.nome.includes(textoDigitado) )
+        setLivrosPesquisados(resultadoPesquisa)
+    }}
     />
+   
+    {livrosPesquisados.map(livro =>(
+        <div>
+                <p>{livro.nome}</p>
+                 <img src={livro.src} alt='' />
+        </div>
+
+    ))}
     </PesquisaContainer>
   )
 }
