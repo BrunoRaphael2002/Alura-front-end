@@ -1,6 +1,7 @@
 import Header from './components/header';
 import Pesquisa from './components/Pesquisa';
 import styled from "styled-components";
+import UltimosLancamentos from './components/UltimosLancamentos';
 
 const AppContainer = styled.div`
 
@@ -20,6 +21,7 @@ function App() {
    
      <Header/>
      <Pesquisa/>
+     <UltimosLancamentos/>
     </AppContainer>
   );
 }
@@ -27,6 +29,8 @@ function App() {
 export default App;
 
 /*
+Projeto fullStack React =>
+
 1- instalar o react e seus pacotes
 
 2- entender como funciona o jsx
@@ -38,4 +42,14 @@ export default App;
 5- tornando o codigo mais simples de fazer manuntenção e de configurar
 
 7- instalando Styled componentes para tornar mais dinamico o React
+
+6- criando funcionalidade com array .map e .filter 
+
+9- utilizando UseState para trabalhar com mudança de estado de uma constante e do DOM
+
+10- utilizando Props e finalizando a parte 1
+
+Parte 2 : Node.js criando API com Express
+
+parte 3 :consumindo API no React
 */
