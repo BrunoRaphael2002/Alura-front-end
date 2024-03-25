@@ -2,6 +2,8 @@ import React from 'react'
 import { livros } from './dadosUltimosLancamentos'
 import { Titulo }  from '../Titulo'
 import styled from 'styled-components'
+import CardRecomenda from '../CardRecomenda'
+import imagemLivro from '../../assets/livro2.png'
 
 const UltimosLancamentosContainer = styled.section`
     background-color: #EBECEE;
@@ -23,13 +25,23 @@ const NovosLivrosContainer = styled.div`
 export default function UltimosLancamentos() {
   return (
     <UltimosLancamentosContainer>
-              <Titulo cor={"#000"}>ÚLTIMOS LANÇAMENTOS</Titulo>
-            <Titulo>ULTIMOS LANCAMENTOS</Titulo>
+               <Titulo
+                cor={"#EB9B00"}
+                tamanhoFonte={"36px"}
+            >
+                ÚLTIMOS LANÇAMENTOS
+            </Titulo>
             <NovosLivrosContainer>
                 { livros.map( livro => (
                     <img src={livro.src} alt=''/>
                 ) ) }
             </NovosLivrosContainer>
+            <CardRecomenda
+                titulo="Talvez você se interesse por"
+                subtitulo="Angular 11"
+                descricao="Construindo uma aplicação com a plataforma Google"
+                img={imagemLivro}
+            />
         </UltimosLancamentosContainer>
   )
 }
