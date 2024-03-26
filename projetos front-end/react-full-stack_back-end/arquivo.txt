@@ -1,0 +1,169 @@
+Antes de começar a codar, vamos entender alguns conceitos-chaves que usaremos nos próximos vídeos: APIs e rotas.
+
+O que são APIs?
+Para o conceito de API, faremos uma analogia com um restaurante. Quando chegamos em um restaurante como clientes, nós fazemos um pedido para o garçom. O papel do garçom é memorizar esse pedido e depois trazê-lo para nós, exatamente como pedimos.
+
+A relação entre o front-end e a API é igual. O front (cliente) pede uma porção de dados para a API (garçom), que tem a responsabilidade de trazer exatamente o que foi pedido!
+
+Diagrama de fluxo entre front-end e API, fazendo analogia a um restaurante. À esquerda, temos a ilustração de uma pessoa negra com cabelos cinzas, encaracolados e curtos, com uma camiseta verde. Abaixo dela, está escrito "Cliente (Frontend)". À direita, temos a ilustração de uma pessoa branca, com cabelos pretos lisos e curtos, com uma camisa de botões branca, gravata borboleta vermelha, segurando uma bandeja tampada. Abaixo dela, está escrito "Garçom (API)". Uma seta aponta da pessoa cliente ao garçom, outra seta aponta do garçom até a pessoa cliente.
+O que são rotas?
+Todas as APIs têm rotas. Considerando o ambiente Node, uma rota é a junção de três elementos:
+
+Uma URL
+Um método HTTP
+Uma função
+Para entender o que é uma rota, vamos voltar à analogia do restaurante. Ao fazer um pedido para o garçom, esperamos receber exatamente o que pedimos. Para obter esse resultado, é preciso fazer o pedido para a pessoa certa, seguir o caminho correto. Não podemos simplesmente gritar nosso pedido no meio do restaurante, é preciso falar diretamente com o garçom.
+
+De forma similar, usamos as URLs, isto é, o texto que se inicia com http:// que inserimos na barra de endereço do navegador. O método HTTP explicita o que será feito: consultar, enviar, alterar ou remover dados? Já a função é o que será desempenhado pelo garçom, os passos seguidos para obter o resultado esperado.
+
+Na prática
+O código no arquivo app.js descreve nossa pequena API. Já a rota é definida pelo path informado no método app.get(). No caso, usamos apenas uma barra, que representa a página inicial do site:
+
+localhost:8000COPIAR CÓDIGO
+Vamos alterar o path para /oi:
+
+// código anterior omitido
+
+app.get('/oi', (req, res) => {
+  res.send('Olá mundo da Alura do Brasil!')
+})
+
+app.listen(port, () => {
+  console.log(`Escutando a porta ${port}`)
+})COPIAR CÓDIGO
+Após salvar, vamos até o navegador e acessar a seguinte URL novamente:
+
+localhost:8000COPIAR CÓDIGO
+Na tela, teremos um erro:
+
+Cannot GET /
+
+Então, vamos acessar a URL /oi:
+
+localhost:8000/oiCOPIAR CÓDIGO
+O resultado será a mensagem que definimos na rota:
+
+Olá mundo da Alura do Brasil!
+
+Ou seja, nós criamos a rota /oi. Este era apenas um exemplo, então vamos retornar à rota anterior, removendo o "oi":
+
+// ...
+
+app.get('/', (req, res) => {
+  res.send('Olá mundo da Alura do Brasil!')
+})
+
+app.listen(port, () => {
+  console.log(`Escutando a porta ${port}`)
+})COPIAR CÓDIGO
+Rota de livros
+A seguir, vamos criar a rota /livros para exibir tudo que diz respeito ao domínio de livros do AluraBooks, como consultar a listagem de livros ou inserir mais elementos. Além disso, começaremos a separação do nosso código, pois não é ideal que tudo esteja no arquivo app.js.
+
+A princípio, criaremos uma pasta chamada "rotas" na raiz do projeto. Nela, vamos criar um arquivo chamado livro.js, em que trabalharemos neste vídeo.
+
+Na primeira linha, vamos importar o Router do Express, uma ferramenta para criação de rotas:
+
+// livros.js
+
+const { Router } = require("express")COPIAR CÓDIGO
+Em seguida, criaremos uma variável chamada router para armazenar uma instância do Router, resultante da função Router() que acabamos de importar:
+
+const { Router } = require("express")
+
+const router = Router()COPIAR CÓDIGO
+Com router, criaremos as ações da nossa rota. Quando expomos nossa aplicação na rede (por exemplo, no localhost:8000), as pessoas farão o acesso por meio do HTTP, que contém ações:
+
+Para consultar dados, utiliza-se a ação GET.
+Para inserir dados, utiliza-se a ação POST.
+Para deletar dados, utiliza-se a ação DELETE.
+Para editar dados, utiliza-se a ação PATCH.
+Cada ação tem uma função da rota. Entenderemos melhor esses conceitos ao longo do curso. Por ora, utilizaremos a ação GET, com a função router.get():
+
+const { Router } = require("express")
+
+const router = Router()
+
+router.get()COPIAR CÓDIGO
+Para manter nosso projeto organizado, cada parte do nosso código terá seu próprio Router. Então, vamos mover a função get() que usamos em app.js para o arquivo livro.js:
+
+// livro.js
+
+const { Router } = require("express")
+
+const router = Router()
+
+router.get('/', (req, res) => {
+    res.send('Olá mundo da Alura do Brasil!')
+})COPIAR CÓDIGO
+Como movemos a função get() para outro arquivo, não precisaremos mais dela em app.js. Vamos removê-la:
+
+// app.js
+
+const express = require("express")
+
+const app = express()
+
+const port = 8000
+
+app.listen(port, () => {
+  console.log(`Escutando a porta ${port}`)
+})COPIAR CÓDIGO
+Voltando a livro.js, é necessário fazer a exportação. Trata-se de um processo semelhante ao export default que usamos no front-end:
+
+// livro.js
+
+const { Router } = require("express")
+
+const router = Router()
+
+router.get('/', (req, res) => {
+    res.send('Olá mundo da Alura do Brasil!')
+})
+
+module.exports = routerCOPIAR CÓDIGO
+No início de app.js, faremos a importação desse módulo:
+
+// app.js
+
+const express = require("express")
+const rotaLivro = require("./rotas/livro")
+
+const app = express()
+
+const port = 8000
+
+app.listen(port, () => {
+  console.log(`Escutando a porta ${port}`)
+})COPIAR CÓDIGO
+Na sequência, usaremos a função app.use(), passando como parâmetros /livros e rotaLivro. Ou seja, ao acessar o endereço /livros, estaremos nos referindo à rotaLivro:
+
+const express = require("express")
+const rotaLivro = require("./rotas/livro")
+
+const app = express()
+
+app.use('/livros', rotaLivro)
+
+const port = 8000
+
+app.listen(port, () => {
+  console.log(`Escutando a porta ${port}`)
+})COPIAR CÓDIGO
+Após salvar todas as alterações, vamos abrir o navegador. Primeiramente, vamos acessar a seguinte URL:
+
+localhost:8000/COPIAR CÓDIGO
+O resultado será uma tela branca com a seguinte mensagem de erro:
+
+Cannot GET /
+
+Em seguida, vamos acessar a rota de livros:
+
+localhost:8000/livrosCOPIAR CÓDIGO
+Olá mundo da Alura do Brasil!
+
+Conseguimos criar nossa primeira rota GET e podemos acessá-la pelo endereço /livros da nossa aplicação!
+
+Recapitulando
+No arquivo app.js, no método use(), definimos que o acesso no path /livros usa-se a rotaLivros. Essa rota está descrita no arquivo livro.js, em que usamos o método get() para exibir a mensagem "Olá mundo da Alura do Brasil" na tela da pessoa usuária.
+
+No próximo vídeo, começaremos a criar outros tipos de rota, com outras ações HTTP.
