@@ -1,5 +1,6 @@
-const { param } = require("../Routes/Livros")
-const { getTodosLivros } = require("../Servicos/livros")
+//const { param } = require("../Routes/Livros")
+const { getTodosLivros, getLivrosPorId } = require("../Servicos/livros")
+
 
 const fs = require('fs')
 
@@ -7,7 +8,7 @@ function getLivros(req , res)  {
    
     // '/' = path , (req = requisição , res = response)
     try {
-        const livros =  getIdLivros(id)
+        const livros =  getTodosLivros()
         res.send(livros)
     } catch (error) {
 
@@ -15,16 +16,16 @@ function getLivros(req , res)  {
 }
 
 //pegar livro por ID
-function getLivro_id(req , res)  {
+function getLivro(req , res)  {
  
 
     try {
-        const livro =  getTodosLivros()
-        const id =    req.params.id 
+        const id = req.params.id
+        const livro =  getLivrosPorId(id)
         res.send(livro)
     } catch (error) {
 
     }
 }
 
-module.exports = {getLivros}
+module.exports = {getLivros,getLivro}
