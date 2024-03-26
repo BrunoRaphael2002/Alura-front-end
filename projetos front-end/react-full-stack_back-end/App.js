@@ -10,6 +10,8 @@ const port = 8000
 
 app.use('/livros', RotaLivros)
 
+app.use('/:id', RotaLivros)
+
 app.listen(port,() =>{
     console.log(`Escutando a porta ${port} `)
 })
