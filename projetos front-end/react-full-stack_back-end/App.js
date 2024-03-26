@@ -11,7 +11,7 @@ const port = 8000
 app.use('/livros', RotaLivros)
 
 app.listen(port,() =>{
-    console.log(`Escutando a porta ${port}`)
+    console.log(`Escutando a porta ${port} `)
 })
 
 /*
@@ -27,5 +27,9 @@ npm install -g nodemon # or using yarn: yarn global add nodemon (instalaçã de 
 4- Verbos Http Get,Post,Patch,Delete 
 
 5-Instalando e utilizando o Postman
+
+6- Criar Rotas,Controladores e Serviços (Divisão de arquivos e pastas)
+
+7- Importando o Fs para mais informações olhe o arquivo test.js
 
 */
