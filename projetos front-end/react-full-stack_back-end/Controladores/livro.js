@@ -1,5 +1,5 @@
 //const { param } = require("../Routes/Livros")
-const { getTodosLivros, getLivrosPorId } = require("../Servicos/livros")
+const { getTodosLivros, getLivrosPorId,insereLivro } = require("../Servicos/livros")
 
 
 const fs = require('fs')
@@ -11,7 +11,8 @@ function getLivros(req , res)  {
         const livros =  getTodosLivros()
         res.send(livros)
     } catch (error) {
-
+        res.status(500)
+        res.send(error.message)
     }
 }
 
@@ -22,10 +23,25 @@ function getLivro(req , res)  {
     try {
         const id = req.params.id
         const livro =  getLivrosPorId(id)
-        res.send(livro)
+        res.send(livro)//Aqui ele vai enviar o array de livro por ID 
     } catch (error) {
-
+        res.status(500)
+        res.send(error.message)
     }
 }
 
-module.exports = {getLivros,getLivro}
+//Criando uma nova Função POST = Inserir dados
+
+function postLivro(req, res){
+    try{
+        const livroNovo = req.body
+        insereLivro(livroNovo)//essa função vai ser criada na pasta serviços
+        res.status(201)//201 porque o Livro novo acabou de ser criado
+        res.send("Livro inserido com Sucesso")
+    }catch (error){
+        res.status(500)
+        res.send(error.message)
+    }
+}
+
+module.exports = {getLivros,getLivro,postLivro}

@@ -1,6 +1,6 @@
 const {Router} = require ('express')
 //Estrutura de importaçã:const { getLivros } = require("../controladores/livro")
-const { getLivros, getLivro } = require("../Controladores/livro")
+const { getLivros, getLivro, postLivro } = require("../Controladores/livro")
 
     const router = Router()
 
@@ -8,6 +8,8 @@ const { getLivros, getLivro } = require("../Controladores/livro")
 
         router.get('/:id',  getLivro)
                 
+                router.post('/', postLivro)
+
                 router.patch('/')
                 
                 router.delete('/')

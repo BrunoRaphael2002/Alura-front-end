@@ -20,3 +20,7 @@ fs.writeFileSync('livros.json', JSON.stringify([...dadosAtuais, novoDado ]));
 //A função  readFileSync irá ler os arquivos ou seja mostrar na tela
 // E a função writeFileSync será usada para digitar os dados
 //muito similar ao print e input 
+
+//[...dadosAtuais, novoDado ]
+//isso significa
+/* Pegue todos os dados atuais e mais um dado novo que será inserido */

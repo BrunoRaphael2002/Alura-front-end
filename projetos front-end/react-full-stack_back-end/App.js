@@ -5,6 +5,9 @@ const express = require("express")
 const RotaLivros = require("./Routes/Livros")
 
 const app = express()
+app.use(express.json())//Agora o Node recebe e salva no banco de dados Json
+//com essa função ele não vai retornar mais Null 
+//pois agora ele reconhece o json
 
 const port = 8000
 
@@ -33,5 +36,7 @@ npm install -g nodemon # or using yarn: yarn global add nodemon (instalaçã de 
 6- Criar Rotas,Controladores e Serviços (Divisão de arquivos e pastas)
 
 7- Importando o Fs para mais informações olhe o arquivo test.js
+
+8- Post , Put , Delete apartir do body
 
 */
