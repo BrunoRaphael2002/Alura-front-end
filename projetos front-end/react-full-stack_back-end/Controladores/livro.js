@@ -1,5 +1,5 @@
 //const { param } = require("../Routes/Livros")
-const { getTodosLivros, getLivrosPorId,insereLivro } = require("../Servicos/livros")
+const { getTodosLivros, getLivrosPorId,insereLivro, modificaLivro, deletarLivroPorId } = require("../Servicos/livros")
 
 
 const fs = require('fs')
@@ -43,5 +43,31 @@ function postLivro(req, res){
         res.send(error.message)
     }
 }
+//Criando uma nova Função PACTH = EDITA dados
 
-module.exports = {getLivros,getLivro,postLivro}
+function patchLivro(req, res){
+        try{
+            const id = req.params.id
+            const body = req.body
+
+            modificaLivro(body,id)
+            res.send("Livro Editado com Sucesso")
+        }catch(error){
+            res.status(500)
+        res.send(error.message)
+        }
+}
+
+//Criando uma nova Função Delete = EDITA dados
+function deleteLivro(req, res) {
+    try {
+        const id = req.params.id
+        deletarLivroPorId(id)
+        res.send("livro deletado com sucesso")
+    } catch (error) {
+        res.status(500)
+        res.send(error.message)
+    }
+}
+
+module.exports = {getLivros,getLivro,postLivro,patchLivro, deleteLivro}

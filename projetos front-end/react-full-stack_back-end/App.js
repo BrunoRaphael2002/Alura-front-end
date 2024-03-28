@@ -37,6 +37,8 @@ npm install -g nodemon # or using yarn: yarn global add nodemon (instalaçã de 
 
 7- Importando o Fs para mais informações olhe o arquivo test.js
 
-8- Post , Put , Delete apartir do body
+8- Post ,patch, Put , Delete apartir do body
+
+
 
 */
