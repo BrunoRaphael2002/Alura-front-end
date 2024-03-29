@@ -23,13 +23,6 @@ function getLivro(req , res)  {
     try {
         const id = req.params.id
         //verificando ID
-
-        //código omitido
-
-function getLivro(req, res) {
-    try {
-        const id = req.params.id
-
         if(id && Number(id)) {
             const livro = getLivroPorId(id)
             res.send(livro)
@@ -38,15 +31,8 @@ function getLivro(req, res) {
             res.send("Id inválido")
         }
         
-    } catch (error) {
-        res.status(500)
-        res.send(error.message)
-    } 
-}
-
-//código omitido
-        const livro =  getLivrosPorId(id)
-        res.send(livro)//Aqui ele vai enviar o array de livro por ID 
+       
+       //Aqui ele vai enviar o array de livro por ID 
     } catch (error) {
         res.status(500)
         res.send(error.message)
@@ -58,9 +44,20 @@ function getLivro(req, res) {
 function postLivro(req, res){
     try{
         const livroNovo = req.body
-        insereLivro(livroNovo)//essa função vai ser criada na pasta serviços
-        res.status(201)//201 porque o Livro novo acabou de ser criado
-        res.send("Livro inserido com Sucesso")
+
+        if(req.body.nome) {
+            insereLivro(livroNovo)
+            res.status(201)
+            res.send("Livro inserido com sucesso")
+        } else {
+            res.status(422)
+            res.send("O campo nome é obrigatório")
+        }
+
+
+      //  insereLivro(livroNovo)//essa função vai ser criada na pasta serviços
+      //  res.status(201)//201 porque o Livro novo acabou de ser criado
+       // res.send("Livro inserido com Sucesso")
     }catch (error){
         res.status(500)
         res.send(error.message)
@@ -71,10 +68,18 @@ function postLivro(req, res){
 function patchLivro(req, res){
         try{
             const id = req.params.id
-            const body = req.body
+           
 
-            modificaLivro(body,id)
-            res.send("Livro Editado com Sucesso")
+            if(id && Number(id)) {
+                const body = req.body
+                modificaLivro(body, id)
+                res.send("Item modificado com sucesso")
+            } else {
+                res.status(422)
+                res.send("Id inválido")
+            }
+
+           
         }catch(error){
             res.status(500)
         res.send(error.message)
@@ -85,8 +90,14 @@ function patchLivro(req, res){
 function deleteLivro(req, res) {
     try {
         const id = req.params.id
-        deletarLivroPorId(id)
-        res.send("livro deletado com sucesso")
+
+        if(id && Number(id)) {
+            deletaLivroPorId(id)
+            res.send("livro deletado com sucesso")
+        } else {
+            res.status(422)
+            res.send("ID inválido")
+        }
     } catch (error) {
         res.status(500)
         res.send(error.message)
