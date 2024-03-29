@@ -1,0 +1,7 @@
+Instalar a ferramenta Axios, que nos possibilitará fazer requisições HTTP na aplicação;
+Utilizar o Axios para criar serviços e poder personalizar suas requisições pra determinados serviços;
+Fazer requisições HTTP dentro de seus componentes para podermos acessar os dados da API dentro dos componentes;
+Usar useEffect e entender suas regras, para que possamos lidar com chamadas à API que devem rodar no momento da inicialização do componente;
+Entender conceitos de assincronismo, para que possamos lidar com o tempo de espera entre a chamada HTTP e a resposta.
+
+https://www.alura.com.br/artigos/async-await-no-javascript-o-que-e-e-quando-usar?_gl=1*5lkidh*_ga*NTA0Njk1MjUuMTY4MzI4NDUxMA..*_ga_1EPWSW3PCS*MTcxMTc0MzA1Ny4xMjkuMS4xNzExNzQ0Mjk2LjAuMC4w*_fplc*ZHZlV2JNJTJCJTJGNWJDejBqbHN0N1dmdnRtYWIwZ1hPaDQybk5SclhhJTJCdHlMJTJGZzQxdFI2cDVXcTZUejJzbWolMkJuY3RLQmFGd0xZREk5QzNGdDd4Z0NGdUgzNnVaam50WHN2YTlBcXJkY2ZuS2FHbWM5ZWhZR1cyTFNGJTJCb1h5SW1nJTNEJTNE
