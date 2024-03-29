@@ -22,6 +22,29 @@ function getLivro(req , res)  {
 
     try {
         const id = req.params.id
+        //verificando ID
+
+        //código omitido
+
+function getLivro(req, res) {
+    try {
+        const id = req.params.id
+
+        if(id && Number(id)) {
+            const livro = getLivroPorId(id)
+            res.send(livro)
+        } else {
+            res.status(422)
+            res.send("Id inválido")
+        }
+        
+    } catch (error) {
+        res.status(500)
+        res.send(error.message)
+    } 
+}
+
+//código omitido
         const livro =  getLivrosPorId(id)
         res.send(livro)//Aqui ele vai enviar o array de livro por ID 
     } catch (error) {
