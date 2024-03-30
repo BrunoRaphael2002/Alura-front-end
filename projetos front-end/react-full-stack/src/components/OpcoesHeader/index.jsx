@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 //styled-components:
 const TextListUl =  styled.ul` 
@@ -32,7 +33,9 @@ export default function OpcoesHeader() {
                <TextListUl>
 
               { TextoOpcoes.map((texto) => (
-                     <LinkNavli><p>{texto}</p></LinkNavli>
+                     <Link to='/favoritos'>
+                       <LinkNavli><p>{texto}</p></LinkNavli>
+                     </Link>
                 ) ) }
         
               </TextListUl>
