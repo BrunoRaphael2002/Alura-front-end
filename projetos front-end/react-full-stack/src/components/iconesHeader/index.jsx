@@ -26,7 +26,9 @@ export default function IconesHeader() {
 
 <Icones>
                 {icons.map((icones_header)=>(
-                  <IconeImg><img src={icones_header} alt="" /></IconeImg>
+                 
+                    <IconeImg><img src={icones_header} alt="" /></IconeImg>
+                 
                 ))}
               </Icones>
     </div>

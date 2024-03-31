@@ -1,6 +1,5 @@
 import React from 'react'
 import logo from"../../assets/logo.svg";
-
 import styled from 'styled-components';
 
 const LogoContainer = styled.div`
@@ -16,12 +15,14 @@ const ImagemLogo = styled.img`
 
 export default function Logo() {
   return (
-    <LogoContainer>
-          <ImagemLogo
-          src={logo}
-           alt='logo'
-           />
-          <p><strong>Alura</strong>Books</p>
-            </LogoContainer>
+  
+      <LogoContainer>
+            <ImagemLogo
+            src={logo}
+             alt='logo'
+             />
+            <p><strong>Alura</strong>Books</p>
+              </LogoContainer>
+  
   )
 }

@@ -1,7 +1,6 @@
-import Header from './components/header';
-import Pesquisa from './components/Pesquisa';
+import Pesquisa from '../components/Pesquisa';
 import styled from "styled-components";
-import UltimosLancamentos from './components/UltimosLancamentos';
+import UltimosLancamentos from '../components/UltimosLancamentos';
 
 const AppContainer = styled.div`
 
@@ -19,7 +18,7 @@ function App() {
   return (
     <AppContainer>
    
-     <Header/>
+  
      <Pesquisa/>
      <UltimosLancamentos/>
     </AppContainer>
@@ -52,4 +51,7 @@ Projeto fullStack React =>
 Parte 2 : Node.js criando API com Express
 
 parte 3 :consumindo API no React
+
+iniciar a aplicação -> npm run start
+
 */

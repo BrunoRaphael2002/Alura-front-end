@@ -24,8 +24,8 @@ const LinkNavli = styled.li`
 
 
 //automação de componentes 
-const TextoOpcoes = ['Categorias', 'Favoritos','Minha Estante'];
-//o .map vai 'mapear' todos os dados do arry e retornar no html como é visto na <li></li>
+const TextoOpcoes = ['Categorias', 'Favoritos','Estante'];
+//o .map vai 'mapear' todos os dados do arry e retornar no html como é visto na <li></li>  const TextoOpcoes = ['Categorias', 'Favoritos','Minha Estante'];
 
 export default function OpcoesHeader() {
   return (
@@ -33,7 +33,7 @@ export default function OpcoesHeader() {
                <TextListUl>
 
               { TextoOpcoes.map((texto) => (
-                     <Link to='/favoritos'>
+                     <Link to={`/${texto.toLowerCase()}`}>
                        <LinkNavli><p>{texto}</p></LinkNavli>
                      </Link>
                 ) ) }

@@ -6,9 +6,10 @@ import Logo from "../logo";
 import OpcoesHeader from "../OpcoesHeader";
 import IconesHeader from "../iconesHeader";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 //utilizando styled components
 const HeaderContainer = styled.header`
-
+  position: fixed;
     background-color: white;
     display: flex;
     align-items: center;
@@ -37,7 +38,11 @@ function Header() {
     
          <HeaderContainer>
       <NavContainer>
-      <Logo/>
+
+     <Link to='/'> 
+     <Logo/>
+     </Link>
+
       <OpcoesHeader/>
       <IconesHeader/>
       </NavContainer>
