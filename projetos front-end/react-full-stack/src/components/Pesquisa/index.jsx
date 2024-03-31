@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import InputStyle from '../input';
 import styled from 'styled-components';
 //utilisando Estados React useState
 import { useState } from 'react';
+import { getLivros } from '../../Servicos';
 //inserindo dados 
 
-import { livros } from './dadosPesquisa';
+//Utilizando UseEffect
 
 
 const PesquisaContainer = styled.section`
@@ -51,6 +52,12 @@ const Resultado = styled.div`
 
 export default function Pesquisa() {
         const [ livrosPesquisados, setLivrosPesquisados ] = useState([])
+        const [ livros, setLivros ] = useState([])
+
+        useEffect(()=> {
+            const LivrosDaApi= getLivros()
+            setLivros(LivrosDaApi)
+        }, [])
 
     
 
