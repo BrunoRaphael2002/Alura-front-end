@@ -1,32 +1,49 @@
-import { useEffect ,useState} from 'react';
+
+
+import { useEffect,useState } from 'react'
 import styled from 'styled-components'
-import { getFavoritos } from '../Servicos/favoritos';
+import { deleteFavorito, getFavoritos } from '../Servicos/favoritos';
 
-  const AppContainer = styled.div `
-        width: 100vw;
-        height: 100vh;
-        background-image: linear-gradient(90deg,#002f52 35%,#326589 165%);
-    `
 
-  function Favoritos() {
-        const [favoritos, setFavoritos] = useState([])
+const AppContainer = styled.div`
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(90deg,#002F52 35%,#326589 165%);
+`
 
-        async function fetchFavoritos() {
-            const favoritosDaAPI = await getFavoritos()
-            setFavoritos(favoritosDaAPI)
-        }
+function Favoritos() {
+  const [favoritos, setFavoritos] = useState([])
 
-        useEffect(() => {
-            fetchFavoritos()
-        }, [])
+  async function fetchFavoritos() {
+    const favoritosDaAPI = await getFavoritos()
+    setFavoritos(favoritosDaAPI)
+}
 
-        return (
-            <AppContainer>
-                  {favoritos.map( favorito => (
-                    <p>{favorito.nome}</p>
-                ) )}
-            </AppContainer>
-        );
-    }
+      
+
+      
+
+ async function deletarFavorito(id) {
+  await deleteFavorito(id)
+  await setFavoritos()
+  alert(`Livro de id:${id} deletado!`)
+}
+
+useEffect(() => {
+  fetchFavoritos()
+}, [])
+  return (
+
+    <AppContainer>
+      {favoritos.map( favorito => (
+        <div onClick={() => deletarFavorito(favorito.id)}>
+          
+                      <p>{favorito.nome}</p>
+                
+        </div>
+          ) )}
+    </AppContainer>
+  );
+}
 
 export default Favoritos

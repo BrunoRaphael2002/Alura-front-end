@@ -1,8 +1,8 @@
 import axios from "axios"
 
-const favoritosAPI = axios.create({baseURL: "http://localhost:8000/favoritos"})
+const favoritosAPI = axios.create({baseURL: "http://localhost:8000/livros"})
 
-async function getFavoritos() {
+async function  getFavoritos() {
     const response = await favoritosAPI.get('/')
 
     return response.data
@@ -16,10 +16,8 @@ async function deleteFavorito(id) {
     await favoritosAPI.delete(`/${id}`)
 }
 
-    export {
+export {
     getFavoritos,
     postFavorito,
     deleteFavorito
 }
-
-
