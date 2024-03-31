@@ -1,9 +1,12 @@
-import React, { useEffect } from 'react';
+
 import InputStyle from '../input';
 import styled from 'styled-components';
 //utilisando Estados React useState
-import { useState } from 'react';
-import { getLivros } from '../../Servicos';
+import React, { useState,useEffect } from 'react';
+
+import { getLivros } from '../../Servicos/livros';
+import {  postFavorito} from '../../Servicos/favoritos';
+
 //inserindo dados 
 
 //Utilizando UseEffect
@@ -63,6 +66,14 @@ export default function Pesquisa() {
             setLivros(livrosDaAPI)
         }
     
+        // código omitido
+
+    async function insertFavorito(id) {
+        await postFavorito(id)
+        alert(`Livro de id:${id} inserido!`)
+}
+
+
 
   return (
     <PesquisaContainer>
@@ -80,10 +91,14 @@ export default function Pesquisa() {
     />
    
     {livrosPesquisados.map(livro =>(
-        <Resultado>
+        <Resultado onClick={() => insertFavorito(livro.id)}>
                 <p>{livro.nome}</p>
                  <img src={livro.src} alt='' />
         </Resultado>
+
+
+
+
 
         /* Obs: lembrar de quando criar o styled component para estilizar uma div ou algo do tipo trocar o nome da tag html seja ela ul, li, main, nav, section, div, etc... pelo nome do componente no caso aqui é Resultado 
           <div>

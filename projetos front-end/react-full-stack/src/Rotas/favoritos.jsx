@@ -1,4 +1,4 @@
-import { useEffect , useState} from 'react';
+import { useEffect ,useState} from 'react';
 import styled from 'styled-components'
 import { getFavoritos } from '../Servicos/favoritos';
 
@@ -22,7 +22,7 @@ import { getFavoritos } from '../Servicos/favoritos';
 
         return (
             <AppContainer>
-                 {favoritos.map( favorito => (
+                  {favoritos.map( favorito => (
                     <p>{favorito.nome}</p>
                 ) )}
             </AppContainer>
