@@ -14,7 +14,7 @@ li{
 }
 `;
 
-function App() {
+function Home() {
   return (
     <AppContainer>
    
@@ -25,7 +25,7 @@ function App() {
   );
 }
 
-export default App;
+export default Home;
 
 /*
 Projeto fullStack React =>
@@ -53,5 +53,16 @@ Parte 2 : Node.js criando API com Express
 parte 3 :consumindo API no React
 
 iniciar a aplicação -> npm run start
+
+
+O acesso à requisição na URL onde fica a nossa API que veio do nosso site no localhost:3000 foi bloqueado pela política da CORS (Cross-origin Resource Sharing).
+
+Esse CORS é basicamente um sistema de segurança para que você controle quem pode fazer requisições para a sua API. Não configuramos isso na API, logo o localhost:3000 está bloqueado a fazer requisições para a nossa API por padrão do Express.
+
+Como resolver isso? É extremamente simples.
+
+Instalando CORS
+
+instalaçao de segurança para usar API npm install cors(Obs: no servidor deve ser instalado no backend)
 
 */

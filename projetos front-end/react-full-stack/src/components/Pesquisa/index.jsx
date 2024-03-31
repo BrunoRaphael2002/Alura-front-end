@@ -55,10 +55,13 @@ export default function Pesquisa() {
         const [ livros, setLivros ] = useState([])
 
         useEffect(()=> {
-            const LivrosDaApi= getLivros()
-            setLivros(LivrosDaApi)
+            fetchLivros()
         }, [])
 
+        async function fetchLivros() {
+            const livrosDaAPI = await getLivros()
+            setLivros(livrosDaAPI)
+        }
     
 
   return (

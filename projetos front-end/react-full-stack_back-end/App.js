@@ -1,10 +1,14 @@
-//importando o Express
-
+//importando o Express ->
 const express = require("express")
-//importando a rota Livrros
+//importando a rota Livrros ->
 const RotaLivros = require("./Routes/Livros")
+////importando a cors ->
+const cors = require("cors")
 
 const app = express()
+
+app.use(cors({origin:'*'}))
+
 app.use(express.json())//Agora o Node recebe e salva no banco de dados Json
 //com essa função ele não vai retornar mais Null 
 //pois agora ele reconhece o json
