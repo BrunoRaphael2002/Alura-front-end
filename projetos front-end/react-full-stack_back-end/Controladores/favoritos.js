@@ -1,4 +1,4 @@
-import { getTodosFavoritos, insereFavorito, deletaFavoritoPorId } from "../Servicos/favoritos"
+const{ getTodosFavoritos, insereFavorito, deletaFavoritoPorId } = require( "../Servicos/favoritos")
 
 function getFavoritos(req, res){
     try{
@@ -39,7 +39,7 @@ function deleteFavorito(req, res) {
     } 
 }
 
-export default {
+module.exports = {
     getFavoritos,
     postFavorito,
     deleteFavorito

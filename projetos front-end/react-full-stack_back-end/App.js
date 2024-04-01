@@ -2,6 +2,8 @@
 const express = require("express")
 //importando a rota Livrros ->
 const RotaLivros = require("./Routes/Livros")
+const routerFavorites = require('./Routes/favoritos')
+
 ////importando a cors ->
 
 
@@ -9,12 +11,7 @@ const app = express()
 
 
 const cors = require("cors");
-
-
-
-app.use(cors({
-  origin: "http://localhost:3000", // Permitir apenas solicitações do front-end em localhost:3000
-}));
+app.use(cors({origin: '*'}))
 
 
 
@@ -26,7 +23,7 @@ const port = 8000
 
 app.use('/livros', RotaLivros)
 
-
+app.use('/favoritos', routerFavorites)
 
 app.listen(port,() =>{
     console.log(`Escutando a porta ${port} `)
