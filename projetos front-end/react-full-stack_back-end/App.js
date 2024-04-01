@@ -3,11 +3,20 @@ const express = require("express")
 //importando a rota Livrros ->
 const RotaLivros = require("./Routes/Livros")
 ////importando a cors ->
-const cors = require("cors")
+
 
 const app = express()
 
-app.use(cors({origin:'*'}))
+
+const cors = require("cors");
+
+
+
+app.use(cors({
+  origin: "http://localhost:3000", // Permitir apenas solicitações do front-end em localhost:3000
+}));
+
+
 
 app.use(express.json())//Agora o Node recebe e salva no banco de dados Json
 //com essa função ele não vai retornar mais Null 

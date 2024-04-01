@@ -1,13 +1,6 @@
-
-import { deleteLivrosFavoritos, getLivrosFavoritos } from '../Servicos/favoritos'
+import './Favoritos.css'
+import { deleteLivrosFavoritos, getLivrosFavoritos } from '../../services/livrosFavoritos.js'
 import { useEffect, useState } from 'react'
-import styled from 'styled-components'
-
-const AppContainer = styled.div`
-    width: 100vw;
-    height: 100vh;
-    background-image: linear-gradient(90deg,#002F52 35%,#326589 165%);
-`
 
 function Favoritos() {
 
@@ -29,17 +22,17 @@ function Favoritos() {
   }
 
   return (
-    <AppContainer className='Favoritos'>
+    <div className='Favoritos'>
       <h2>Aqui estão seus livros favoritos:</h2>
       <div className='resultadoContainer'>
         {favoritos.map(favorito => (
           <div key={favorito.id} className='resultado' onClick={() => deletarFavorito(favorito.id)}>
             <p>{favorito.nome}</p>
-            <img src={favorito.src } alt=''/>
+            <img src={favorito.src}/>
           </div>
         ))}
       </div>
-    </AppContainer>
+    </div>
   )
 }
 

@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const livrosAPI = axios.create({ baseURL: "http://localhost:8000/favoritos" })
+const livrosAPI = axios.create({ baseURL: "http://localhost:8000/favorites" })
 
 async function getLivrosFavoritos() {
   const response = await livrosAPI.get('/')
